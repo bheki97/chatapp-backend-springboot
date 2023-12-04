@@ -2,8 +2,9 @@ package com.fnb.bheki97.chatappbackendspringboot.model;
 
 import lombok.Data;
 
+import java.io.File;
 import java.util.Arrays;
-import java.util.Objects;
+import java.util.List;
 
 @Data
 public class EmailMessage {
@@ -12,15 +13,17 @@ public class EmailMessage {
     private String subject;
     private String message;
     private boolean isHtml;
+    private List<File> attachments;
 
     public EmailMessage() {
     }
 
-    public EmailMessage(String[] receivers, String subject, String message, boolean isHtml) {
+    public EmailMessage(String[] receivers, String subject, String message, boolean isHtml, List<File> attachments) {
         this.receivers = receivers;
         this.subject = subject;
         this.message = message;
         this.isHtml = isHtml;
+        this.attachments = attachments;
     }
 
     @Override
@@ -30,6 +33,7 @@ public class EmailMessage {
                 ", subject='" + subject + '\'' +
                 ", message='" + message + '\'' +
                 ", isHtml=" + isHtml +
+                ", attachments=" + Arrays.toString(attachments.toArray()) +
                 '}';
     }
 }
