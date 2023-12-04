@@ -1,4 +1,4 @@
-package com.fnb.bheki97.chatappbackendspringboot.model;
+package com.fnb.bheki97.chatappbackendspringboot.config.email;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

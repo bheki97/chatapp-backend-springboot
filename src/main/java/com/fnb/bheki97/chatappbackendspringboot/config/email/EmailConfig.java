@@ -1,6 +1,5 @@
-package com.fnb.bheki97.chatappbackendspringboot.config;
+package com.fnb.bheki97.chatappbackendspringboot.config.email;
 
-import com.fnb.bheki97.chatappbackendspringboot.model.EmailConfigProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

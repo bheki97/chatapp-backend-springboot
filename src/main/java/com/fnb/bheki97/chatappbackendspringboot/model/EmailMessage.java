@@ -16,6 +16,7 @@ public class EmailMessage {
     private List<File> attachments;
 
     public EmailMessage() {
+
     }
 
     public EmailMessage(String[] receivers, String subject, String message, boolean isHtml, List<File> attachments) {
