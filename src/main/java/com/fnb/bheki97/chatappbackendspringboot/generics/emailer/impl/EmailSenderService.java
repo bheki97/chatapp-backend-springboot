@@ -1,7 +1,7 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.generics.emailer.impl;
+package com.fnb.bheki97.chatappbackendspringboot.generics.emailer.impl;
 
-import com.fnb.bheki97.chatappbackendspringboot.service.generics.emailer.EmailSender;
-import com.fnb.bheki97.chatappbackendspringboot.service.generics.model.EmailMessage;
+import com.fnb.bheki97.chatappbackendspringboot.generics.emailer.EmailSender;
+import com.fnb.bheki97.chatappbackendspringboot.model.EmailMessage;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.JavaMailSender;

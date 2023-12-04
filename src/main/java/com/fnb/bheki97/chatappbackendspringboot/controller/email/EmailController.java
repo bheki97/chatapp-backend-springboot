@@ -1,7 +1,7 @@
 package com.fnb.bheki97.chatappbackendspringboot.controller.email;
 
-import com.fnb.bheki97.chatappbackendspringboot.service.generics.emailer.EmailSender;
-import com.fnb.bheki97.chatappbackendspringboot.service.generics.model.EmailMessage;
+import com.fnb.bheki97.chatappbackendspringboot.generics.emailer.EmailSender;
+import com.fnb.bheki97.chatappbackendspringboot.model.EmailMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

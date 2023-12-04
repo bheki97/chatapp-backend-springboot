@@ -1,6 +1,6 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.generics.codegenerator.number.impl;
+package com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.number.impl;
 
-import com.fnb.bheki97.chatappbackendspringboot.service.generics.codegenerator.number.NumberCodeGenerator;
+import com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.number.NumberCodeGenerator;
 
 import java.util.Random;
 

@@ -1,14 +1,11 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.generics.config;
+package com.fnb.bheki97.chatappbackendspringboot.config;
 
-import lombok.Data;
+import com.fnb.bheki97.chatappbackendspringboot.model.EmailConfigProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.Properties;
@@ -55,13 +52,5 @@ public class EmailConfig {
         throw new RuntimeException("String is not a number: "+val);
     }
 }
-
- @Component
- @Data
- @ConfigurationProperties(prefix = "mail")
- @PropertySource(value = "classpath:email-config.properties")
- class EmailConfigProperties{
-    private Map<String,String> smtp;
- }
 
 

@@ -1,6 +1,6 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.generics.codegenerator.string.impl;
+package com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.string.impl;
 
-import com.fnb.bheki97.chatappbackendspringboot.service.generics.codegenerator.string.StringCodeGenerator;
+import com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.string.StringCodeGenerator;
 
 import java.security.SecureRandom;
 

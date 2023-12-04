@@ -1,4 +1,4 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.generics.model;
+package com.fnb.bheki97.chatappbackendspringboot.model;
 
 import lombok.Data;
 
