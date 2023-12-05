@@ -1,9 +1,11 @@
 package com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.string.impl;
 
 import com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.string.StringCodeGenerator;
+import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 
+@Service
 public class StringCodeGeneratorImpl implements StringCodeGenerator {
 
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

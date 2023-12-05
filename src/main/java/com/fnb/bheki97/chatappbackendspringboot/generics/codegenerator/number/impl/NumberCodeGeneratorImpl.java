@@ -1,9 +1,11 @@
 package com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.number.impl;
 
 import com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.number.NumberCodeGenerator;
+import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
+@Service
 public class NumberCodeGeneratorImpl implements NumberCodeGenerator {
 
     private final Random random;
