@@ -1,4 +1,4 @@
-package com.fnb.bheki97.chatappbackendspringboot.controller;
+package com.fnb.bheki97.chatappbackendspringboot.controller.message;
 
 import com.fnb.bheki97.chatappbackendspringboot.dto.MsgDto;
 import com.fnb.bheki97.chatappbackendspringboot.service.message.MessageManager;
