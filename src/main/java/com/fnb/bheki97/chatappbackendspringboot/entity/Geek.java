@@ -33,6 +33,10 @@ public class Geek {
     public Geek() {
     }
 
+    public Geek(String username) {
+        this.username = username;
+    }
+
     public Geek(String username, String email, String firstname, String lastname, String cellNumber, String password, Timestamp registrationDate) {
         this.username = username;
         this.email = email;
