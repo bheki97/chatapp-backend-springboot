@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public class Message {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "msg_id")
     private Long messageId;
     @OneToOne

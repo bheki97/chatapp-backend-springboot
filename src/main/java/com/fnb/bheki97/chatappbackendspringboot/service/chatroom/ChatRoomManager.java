@@ -4,7 +4,7 @@ import com.fnb.bheki97.chatappbackendspringboot.dto.RoomDto;
 
 import java.util.List;
 
-public interface ManageChatRoom {
+public interface ChatRoomManager {
 
 
     RoomDto addChatRoom(RoomDto dto);

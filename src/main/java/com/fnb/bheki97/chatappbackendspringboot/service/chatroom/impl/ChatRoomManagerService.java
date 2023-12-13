@@ -6,14 +6,14 @@ import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.exception.ChatAppException;
 import com.fnb.bheki97.chatappbackendspringboot.repository.ChatRoomRepository;
 import com.fnb.bheki97.chatappbackendspringboot.repository.GeekRepository;
-import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.ManageChatRoom;
+import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.ChatRoomManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ManageChatRoomService implements ManageChatRoom {
+public class ChatRoomManagerService implements ChatRoomManager {
 
     @Autowired
     private ChatRoomRepository roomRepository;

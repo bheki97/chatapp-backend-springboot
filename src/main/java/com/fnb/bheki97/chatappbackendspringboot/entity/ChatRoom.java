@@ -19,6 +19,10 @@ public class ChatRoom {
     @JoinColumn(name = "participant_id2")
     private Geek participant2;
 
+    public ChatRoom() {
+    }
 
-
+    public ChatRoom(Long roomId) {
+        this.roomId = roomId;
+    }
 }

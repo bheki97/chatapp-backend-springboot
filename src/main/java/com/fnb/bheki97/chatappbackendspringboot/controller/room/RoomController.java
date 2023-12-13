@@ -1,7 +1,7 @@
 package com.fnb.bheki97.chatappbackendspringboot.controller.room;
 
 import com.fnb.bheki97.chatappbackendspringboot.dto.RoomDto;
-import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.impl.ManageChatRoomService;
+import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.impl.ChatRoomManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ public class RoomController {
 
 
     @Autowired
-    private ManageChatRoomService chatRoomService;
+    private ChatRoomManagerService chatRoomService;
 
     @PostMapping
     public RoomDto addNewRoom(@RequestBody RoomDto dto){
