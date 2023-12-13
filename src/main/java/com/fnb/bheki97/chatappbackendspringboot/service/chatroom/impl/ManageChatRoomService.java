@@ -10,6 +10,8 @@ import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.ManageChatRoom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ManageChatRoomService implements ManageChatRoom {
 
@@ -37,6 +39,23 @@ public class ManageChatRoomService implements ManageChatRoom {
         }
 
         dto.setRoomId(rm.getRoomId());
+
+        return dto;
+    }
+
+    @Override
+    public List<RoomDto> getAllGeekChatRoomsById(String id) {
+        List<ChatRoom> chatRooms = roomRepository.
+                findAllByParticipant1UsernameOrParticipant2Username(id,id);
+
+        return chatRooms.stream().map(this::ChatroomToDto).toList();
+    }
+
+    private RoomDto ChatroomToDto(ChatRoom room){
+        RoomDto dto = new RoomDto();
+        dto.setRoomId(room.getRoomId());
+        dto.setUsername1(room.getParticipant1().getUsername());
+        dto.setUsername2(room.getParticipant2().getUsername());
 
         return dto;
     }
