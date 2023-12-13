@@ -22,6 +22,7 @@ public class RoomController {
 
     @GetMapping("/{id}")
     public List<RoomDto> getAllGeekChatroom(@PathVariable String id){
-        return null;
+
+        return chatRoomService.getAllGeekChatRoomsById(id);
     }
 }

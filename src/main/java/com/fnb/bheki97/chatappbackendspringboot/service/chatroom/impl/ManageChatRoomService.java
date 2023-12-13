@@ -45,6 +45,11 @@ public class ManageChatRoomService implements ManageChatRoom {
 
     @Override
     public List<RoomDto> getAllGeekChatRoomsById(String id) {
+
+        if(!geekRepository.existsById(id)){
+            throw new ChatAppException("Cannot get Chatroom's for a non existing GEEK");
+        }
+
         List<ChatRoom> chatRooms = roomRepository.
                 findAllByParticipant1UsernameOrParticipant2Username(id,id);
 
