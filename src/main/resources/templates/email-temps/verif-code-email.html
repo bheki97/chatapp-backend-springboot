@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<p>Hello <span th:text="${geek.firstname}"></span>,</p>
+<p>We're excited to have to register on Our Geek Space chat app. You can use the following verification
+<hr>code <span th:text="${code}"></span> to complete the registration process.</p>
+<p>Kind Regards,
+<hr>Management</p>
 
 </body>
 </html>
