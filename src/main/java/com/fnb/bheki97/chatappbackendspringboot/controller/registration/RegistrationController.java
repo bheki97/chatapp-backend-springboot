@@ -1,5 +1,6 @@
 package com.fnb.bheki97.chatappbackendspringboot.controller.registration;
 
+import com.fnb.bheki97.chatappbackendspringboot.dto.EmailSmsCodeDto;
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.GeekVerifier;
 import com.fnb.bheki97.chatappbackendspringboot.service.registration.GeekRegistration;
@@ -25,9 +26,9 @@ public class RegistrationController {
     }
 
     @PostMapping("/verify")
-    public boolean verifyGeekInfo(@RequestBody Geek geek){
+    public EmailSmsCodeDto verifyGeekInfo(@RequestBody Geek geek){
 
-        return verifier.verifyGeek(geek);
+        return (EmailSmsCodeDto) verifier.verifyGeek(geek);
     }
 
 }

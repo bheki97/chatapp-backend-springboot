@@ -2,7 +2,7 @@ package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier;
 
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 
-public interface GeekVerifier {
+public interface GeekVerifier<T> {
 
-    boolean verifyGeek(Geek geek);
+    T verifyGeek(Geek geek);
 }

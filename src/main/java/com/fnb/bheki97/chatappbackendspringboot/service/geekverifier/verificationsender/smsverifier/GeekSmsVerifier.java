@@ -17,12 +17,14 @@ public class GeekSmsVerifier implements VerificationCodeSender {
     @Autowired
     private SmsSender smsSender;
 
-    public void sendGeekVerificationCode(Geek geek){
+    public Object sendGeekVerificationCode(Geek geek){
 
         SmsRequest request = new SmsRequest();
-        request.setMessage(generateMessage(geek.getFirstname(),codeGenerator.generateCode(6)));
+        Long code =codeGenerator.generateCode(6);
+        request.setMessage(generateMessage(geek.getFirstname(),code));
         request.setPhoneNumber(geek.getCellNumber());
         smsSender.sendSms(request);
+        return code;
     }
 
     private String generateMessage(String name , long code){

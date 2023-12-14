@@ -2,7 +2,7 @@ package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificati
 
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 
-public interface VerificationCodeSender {
-    void sendGeekVerificationCode(Geek geek);
+public interface VerificationCodeSender<T> {
+    T sendGeekVerificationCode(Geek geek);
 
 }

@@ -1,15 +1,19 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier;
+package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.impl;
 
+import com.fnb.bheki97.chatappbackendspringboot.dto.EmailSmsCodeDto;
+import com.fnb.bheki97.chatappbackendspringboot.dto.EmailStringSmsLongDto;
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.exception.ChatAppException;
 import com.fnb.bheki97.chatappbackendspringboot.repository.GeekRepository;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.GeekVerifier;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.EmailSmsGeekVerifier;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.emailverifier.GeekEmailVerifier;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.smsverifier.GeekSmsVerifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GeekVerifierService implements GeekVerifier{
+public class GeekVerifierService implements EmailSmsGeekVerifier {
 
     @Autowired
     private GeekRepository geekRepository;
@@ -22,14 +26,19 @@ public class GeekVerifierService implements GeekVerifier{
 
 
     @Override
-    public boolean verifyGeek(Geek geek) {
+    public EmailSmsCodeDto verifyGeek(Geek geek) {
+
+        EmailSmsCodeDto d = new EmailSmsCodeDto<>();
+
 
         if(validateGeekData(geek)){
-            emailVerifier.sendGeekVerificationCode(geek);
-            smsVerifier.sendGeekVerificationCode(geek);
+            Object smsCode = emailVerifier.sendGeekVerificationCode(geek);
+            d.setSmsCode(smsCode);
+            Object emailCode = smsVerifier.sendGeekVerificationCode(geek);
+            d.setEmailCode(emailCode);
         }
 
-        return true;
+        return d;
     }
 
 

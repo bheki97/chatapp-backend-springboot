@@ -24,7 +24,8 @@ public class GeekEmailVerifier implements VerificationCodeSender {
     private CodeGenerator<String> codeGenerator;
 
 
-    public void sendGeekVerificationCode(Geek geek){
+    @Override
+    public Object sendGeekVerificationCode(Geek geek){
         EmailMessage message = new EmailMessage();
         message.setReceivers(new String[]{geek.getEmail()});
         message.setHtml(true);
@@ -39,6 +40,8 @@ public class GeekEmailVerifier implements VerificationCodeSender {
         message.setMessage(html);
 
         emailSender.sendEmail(message);
+
+        return code;
 
     }
 
