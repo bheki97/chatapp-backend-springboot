@@ -11,12 +11,13 @@ import java.sql.Timestamp;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "status_id")
     private Long statusId;
-    @ManyToOne
-    @JoinColumn(name = "message_id")
-    private Message message;
     @Column(name = "received_date")
     private Timestamp receiveDate;
     @Column(name = "read_date")
     private Timestamp readDate;
+
+    @Column(name = "send_date")
+    private Timestamp sendDate;
 }

@@ -20,10 +20,11 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "chat_room_id")
     private ChatRoom chatRoom;
-
     private String message;
-    @Column(name = "send_date")
-    private Timestamp sendDate;
+    @OneToOne
+    @JoinColumn(name = "status_id")
+    private MessageStatus status;
+
 
 
 }
