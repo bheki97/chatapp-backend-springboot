@@ -21,7 +21,10 @@ public class WebSocketController {
     @MessageMapping("/chat/one2one")
     public void sendOneToOne(OneReceiverSendMsgDto dto){
         String receiver = dto.getReceiverId();
+
+        //save to database
         dto =(OneReceiverSendMsgDto) msgManager.sendMessage(dto);
+
         dto.setReceiverId(receiver);
 
         messagingTemplate.convertAndSend("/topic/messages/"+receiver, dto);

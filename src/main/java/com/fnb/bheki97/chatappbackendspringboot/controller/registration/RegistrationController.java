@@ -2,6 +2,7 @@ package com.fnb.bheki97.chatappbackendspringboot.controller.registration;
 
 import com.fnb.bheki97.chatappbackendspringboot.dto.EmailSmsCodeDto;
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
+import com.fnb.bheki97.chatappbackendspringboot.exception.ChatAppException;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.GeekVerifier;
 import com.fnb.bheki97.chatappbackendspringboot.service.registration.GeekRegistration;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,22 @@ public class RegistrationController {
 
     @PostMapping
     public boolean completeRegistration(@RequestBody Geek geek){
-
-        return registration.persistGeekInformation(geek);
+        System.out.println(geek);
+        return geek!=null;
     }
-
     @PostMapping("/verify")
     public EmailSmsCodeDto verifyGeekInfo(@RequestBody Geek geek){
+        EmailSmsCodeDto dto = new EmailSmsCodeDto<>();
+        System.out.println(geek);
+        dto.setEmailCode("d352df");
+        dto.setSmsCode(23423);
+        if(geek.getFirstname().equals("Bheki")){
+            throw new ChatAppException("Bheki already exists");
+        }
 
-        return (EmailSmsCodeDto) verifier.verifyGeek(geek);
+
+        return dto;
     }
+
 
 }

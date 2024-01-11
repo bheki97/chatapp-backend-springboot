@@ -53,13 +53,13 @@ public class MessageManagerService implements MessageManager {
         msg.setChatRoom(new ChatRoom(dto.getRoomId()));
         msg.setSender(new Geek(dto.getSenderId()));
         msg.setMessage(msg.getMessage());
-        msg.setSendDate(dto.getSendDate());
+        msg.getStatus().setSendDate(dto.getSendDate());
 
 
         msg = msgRepository.save(msg);
 
         dto.setMsgId(msg.getMessageId());
-        dto.setSendDate(msg.getSendDate());
+        dto.setSendDate(msg.getStatus().getSendDate());
 
         return dto;
     }
@@ -72,7 +72,7 @@ public class MessageManagerService implements MessageManager {
         dto.setMsgId(msg.getMessageId());
         dto.setMessage(msg.getMessage());
         dto.setSenderId(msg.getSender().getUsername());
-        dto.setSendDate(msg.getSendDate());
+        dto.setSendDate(msg.getStatus().getSendDate());
         return dto;
     }
 }

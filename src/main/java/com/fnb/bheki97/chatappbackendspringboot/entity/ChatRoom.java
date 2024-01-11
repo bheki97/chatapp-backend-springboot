@@ -15,6 +15,7 @@ public class ChatRoom {
     @OneToOne
     @JoinColumn(name = "participant_id1")
     private Geek participant1;
+
     @OneToOne
     @JoinColumn(name = "participant_id2")
     private Geek participant2;

@@ -1,6 +1,7 @@
 package com.fnb.bheki97.chatappbackendspringboot.controller.auth;
 
 import com.fnb.bheki97.chatappbackendspringboot.config.security.jwt.JwtService;
+import com.fnb.bheki97.chatappbackendspringboot.dto.AuthDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.LoginDto;
 import com.fnb.bheki97.chatappbackendspringboot.service.authentication.AuthManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth") public class AuthController {
 
     @Autowired
-    private AuthManager authManager;
+    private AuthManager<LoginDto> authManager;
 
 
     @PostMapping
-    public String login(@RequestBody LoginDto dto){
-        return  (String) authManager.authenticateGeek(dto);
+    public AuthDto login(@RequestBody LoginDto dto){
+        return   authManager.authenticateGeek(dto);
     }
 }

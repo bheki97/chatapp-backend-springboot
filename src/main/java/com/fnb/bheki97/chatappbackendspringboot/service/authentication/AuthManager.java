@@ -1,10 +1,11 @@
 package com.fnb.bheki97.chatappbackendspringboot.service.authentication;
 
+import com.fnb.bheki97.chatappbackendspringboot.dto.AuthDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.LoginDto;
 
-public interface AuthManager<T,U> {
+public interface AuthManager<U> {
 
-    T authenticateGeek(U dto);
+    AuthDto authenticateGeek(U dto);
 
 
 }

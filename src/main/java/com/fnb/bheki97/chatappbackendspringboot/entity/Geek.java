@@ -1,16 +1,13 @@
 package com.fnb.bheki97.chatappbackendspringboot.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "geeks")
+@Table(name = "geeks",indexes = {@Index(name = "idx_geeks_username", columnList = "username")})
 public class Geek {
 
 
