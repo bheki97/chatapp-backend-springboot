@@ -19,7 +19,8 @@ public class GeekSecurityDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Geek> user = repository.findById(username);
+        Optional<Geek> user = repository.findByUsername(username);
+        System.out.println(user);
 
         return user.map(GeekSecurityDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException("Geek not found " + username));

@@ -33,7 +33,8 @@ public class GeekRegistrationService implements GeekRegistration {
 
             //set registration to now
             geek.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
-            geekRepository.save(geek);
+
+            System.out.println(geekRepository.save(geek));
 
 
             return true;

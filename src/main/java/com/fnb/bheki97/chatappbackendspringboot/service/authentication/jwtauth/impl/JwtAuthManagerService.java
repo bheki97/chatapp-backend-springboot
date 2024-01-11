@@ -38,7 +38,7 @@ public class JwtAuthManagerService implements JwtAuthManager {
         if(auth.isAuthenticated()){
 
             authDto.setAuthToken(jwtService.generateToken(dto.getUsername()));
-            Optional<Geek> geek = geekRepository.findById(dto.getUsername());
+            Optional<Geek> geek = geekRepository.findByUsername(dto.getUsername());
 
             geek.ifPresent(authDto::setGeek);
 

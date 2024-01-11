@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .securityMatcher("/**")
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/api/auth","/registration/**","/sms/**").permitAll();
+                    auth.requestMatchers("/auth","/registration/**","/sms/**").permitAll();
                     auth.anyRequest().authenticated();
                 }).exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
