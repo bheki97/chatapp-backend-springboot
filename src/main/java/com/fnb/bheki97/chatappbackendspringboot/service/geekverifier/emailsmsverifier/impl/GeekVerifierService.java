@@ -30,9 +30,9 @@ public class GeekVerifierService implements EmailSmsGeekVerifier {
 
 
         if(validateGeekData(geek)){
-            Object smsCode = emailVerifier.sendGeekVerificationCode(geek);
+            Object smsCode = smsVerifier.sendGeekVerificationCode(geek);
             d.setSmsCode(smsCode);
-            Object emailCode = smsVerifier.sendGeekVerificationCode(geek);
+            Object emailCode = emailVerifier.sendGeekVerificationCode(geek);
             d.setEmailCode(emailCode);
         }
 
