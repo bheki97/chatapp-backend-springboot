@@ -7,11 +7,14 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "geeks",indexes = {@Index(name = "idx_geeks_username", columnList = "username")})
+@Table(name = "geeks",indexes = {@Index(name = "idx_geeks_geek_id", columnList = "username")})
 public class Geek {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "geek_id",nullable = false,unique = true)
+    private Long geekId;
     @Column(nullable = false,unique = true)
     private String username;
     @Column(nullable = false,unique = true)
@@ -20,7 +23,7 @@ public class Geek {
     private String firstname;
     @Column(nullable = false)
     private String lastname;
-    @Column(name = "cellphone_number",nullable = false,unique = true)
+    @Column(name = "cellphone_number",nullable = false)
     private String cellNumber;
     @Column(nullable = false,unique = true)
     private String password;
