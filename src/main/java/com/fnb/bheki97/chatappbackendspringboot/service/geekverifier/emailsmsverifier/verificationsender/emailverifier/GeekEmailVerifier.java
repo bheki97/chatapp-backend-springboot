@@ -1,11 +1,11 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.emailverifier;
+package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.emailverifier;
 
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.CodeGenerator;
 import com.fnb.bheki97.chatappbackendspringboot.generics.emailer.EmailSender;
 import com.fnb.bheki97.chatappbackendspringboot.generics.htmlgenerator.HtmlToStringGenerator;
 import com.fnb.bheki97.chatappbackendspringboot.model.EmailMessage;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.VerificationCodeSender;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.VerificationCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -33,8 +33,10 @@ public class GeekRegistrationService implements GeekRegistration {
 
             //set registration to now
             geek.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
+            geekRepository.save(geek);
 
-            return geekRepository.save(geek).equals(geek);
+
+            return true;
 
         }
 
@@ -47,7 +49,7 @@ public class GeekRegistrationService implements GeekRegistration {
         if(checkForNullAndEmpty(geek.getFirstname())|| checkForNullAndEmpty(geek.getLastname()) ||
                 checkForNullAndEmpty(geek.getEmail())||checkForNullAndEmpty(geek.getCellNumber()) ||
                 checkForNullAndEmpty(geek.getPassword())){
-            throw new ChatAppException("Cannot any of the geeks information as null or empty fields");
+            throw new ChatAppException("Cannot any of the geek's information as null or empty fields");
         }
 
         //validate Email
@@ -56,9 +58,9 @@ public class GeekRegistrationService implements GeekRegistration {
         }
 
         //validate Cell number
-        if(geekRepository.existsByCellNumber(geek.getCellNumber())){
-            throw new ChatAppException("Geek with the same cell number is already registered");
-        }
+//        if(geekRepository.existsByCellNumber(geek.getCellNumber())){
+//            throw new ChatAppException("Geek with the same cell number is already registered");
+//        }
 
 
         return true;

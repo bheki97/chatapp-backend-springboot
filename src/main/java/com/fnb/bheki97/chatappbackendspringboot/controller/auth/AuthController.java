@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth") public class AuthController {
 
     @Autowired
-    private AuthManager<LoginDto> authManager;
+    private AuthManager authManager;
 
 
     @PostMapping
-    public AuthDto login(@RequestBody LoginDto dto){
-        return   authManager.authenticateGeek(dto);
+    public Object login(@RequestBody LoginDto dto){
+        return  authManager.authenticateGeek(dto);
     }
 }

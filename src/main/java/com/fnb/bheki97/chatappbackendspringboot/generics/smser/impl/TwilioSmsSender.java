@@ -23,6 +23,9 @@ public class TwilioSmsSender implements SmsSender {
                 request.getMessage()
         );
 
+        System.out.println(request.getMessage());
+
+
         creator.create();
     }
 }

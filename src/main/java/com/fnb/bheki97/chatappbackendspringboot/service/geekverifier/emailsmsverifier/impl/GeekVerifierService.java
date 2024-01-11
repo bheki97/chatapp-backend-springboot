@@ -1,14 +1,12 @@
 package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.impl;
 
 import com.fnb.bheki97.chatappbackendspringboot.dto.EmailSmsCodeDto;
-import com.fnb.bheki97.chatappbackendspringboot.dto.EmailStringSmsLongDto;
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.exception.ChatAppException;
 import com.fnb.bheki97.chatappbackendspringboot.repository.GeekRepository;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.GeekVerifier;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.EmailSmsGeekVerifier;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.emailverifier.GeekEmailVerifier;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.smsverifier.GeekSmsVerifier;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.emailverifier.GeekEmailVerifier;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.smsverifier.GeekSmsVerifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,9 +48,9 @@ public class GeekVerifierService implements EmailSmsGeekVerifier {
         }
 
         //validate Cell number
-        if(geekRepository.existsByCellNumber(geek.getCellNumber())){
-            throw new ChatAppException("Geek with the same cell number is already registered");
-        }
+//        if(geekRepository.existsByCellNumber(geek.getCellNumber())){
+//            throw new ChatAppException("Geek with the same cell number is already registered");
+//        }
 
 
         return true;

@@ -18,25 +18,18 @@ public class RegistrationController {
     @Autowired
     private GeekVerifier verifier;
     @Autowired
-    private GeekRegistration registration;
+    private GeekRegistration registrationService;
 
     @PostMapping
     public boolean completeRegistration(@RequestBody Geek geek){
-        System.out.println(geek);
-        return geek!=null;
+
+        return registrationService.persistGeekInformation(geek);
     }
-    @PostMapping("/verify")
-    public EmailSmsCodeDto verifyGeekInfo(@RequestBody Geek geek){
-        EmailSmsCodeDto dto = new EmailSmsCodeDto<>();
-        System.out.println(geek);
-        dto.setEmailCode("d352df");
-        dto.setSmsCode(23423);
-        if(geek.getFirstname().equals("Bheki")){
-            throw new ChatAppException("Bheki already exists");
-        }
+    @PostMapping("/verification")
+    public Object verifyGeekInfo(@RequestBody Geek geek){
 
 
-        return dto;
+        return verifier.verifyGeek(geek);
     }
 
 
