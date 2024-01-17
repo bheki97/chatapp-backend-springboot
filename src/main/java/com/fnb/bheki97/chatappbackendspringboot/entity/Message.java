@@ -15,7 +15,7 @@ public class Message {
     @Column(name = "msg_id")
     private Long messageId;
     @ManyToOne
-    @JoinColumn(name = "sender_id",referencedColumnName = "username")
+    @JoinColumn(name = "sender_id")
     private Geek sender;
     @ManyToOne
     @JoinColumn(name = "chat_room_id")

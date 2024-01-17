@@ -5,6 +5,7 @@ import com.fnb.bheki97.chatappbackendspringboot.model.EmailMessage;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +19,14 @@ public class EmailSenderService implements EmailSender {
     private final JavaMailSender javaMailSender;
 
     public EmailSenderService(JavaMailSender javaMailSender) {
+
         this.javaMailSender = javaMailSender;
     }
 
     @Override
     public void sendEmail(EmailMessage message) {
+
+
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper;
 

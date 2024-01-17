@@ -34,10 +34,13 @@ public class SecurityConfig {
     public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
         http
                 .securityMatcher("/**")
+                .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/auth","/registration/**","/sms/**").permitAll();
+
+                    auth.requestMatchers("/auth","/chat-app/**","/topic/**","/registration/**","/sms/**").permitAll();
                     auth.anyRequest().authenticated();
+
                 }).exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);

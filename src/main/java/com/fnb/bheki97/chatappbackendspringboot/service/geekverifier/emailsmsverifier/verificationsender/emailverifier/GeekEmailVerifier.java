@@ -18,6 +18,8 @@ public class GeekEmailVerifier implements VerificationCodeSender {
 
     @Autowired
     private EmailSender emailSender;
+
+
     @Autowired
     private HtmlToStringGenerator htmlGenerator;
     @Autowired
