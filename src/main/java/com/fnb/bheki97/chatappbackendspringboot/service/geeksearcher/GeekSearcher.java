@@ -1,8 +1,10 @@
 package com.fnb.bheki97.chatappbackendspringboot.service.geeksearcher;
 
+import com.fnb.bheki97.chatappbackendspringboot.dto.SearchedGeekDto;
+
 import java.util.List;
 
 public interface GeekSearcher {
 
-    List<String> searchForGeekUsernameByUsername(String username);
+    List<SearchedGeekDto> searchForGeekExcludingById(long geekId);
 }

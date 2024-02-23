@@ -12,11 +12,11 @@ public class ChatRoom {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "room_id")
     private Long roomId;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "participant_id1")
     private Geek participant1;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "participant_id2")
     private Geek participant2;
 

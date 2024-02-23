@@ -2,6 +2,7 @@ package com.fnb.bheki97.chatappbackendspringboot.service.authentication.jwtauth.
 
 import com.fnb.bheki97.chatappbackendspringboot.config.security.jwt.JwtService;
 import com.fnb.bheki97.chatappbackendspringboot.dto.AuthDto;
+import com.fnb.bheki97.chatappbackendspringboot.dto.GeekDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.LoginDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.TokenAuthDto;
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
@@ -38,13 +39,11 @@ public class JwtAuthManagerService implements JwtAuthManager {
         if(auth.isAuthenticated()){
 
             authDto.setAuthToken(jwtService.generateToken(dto.getUsername()));
-            Optional<Geek> geek = geekRepository.findByUsername(dto.getUsername());
 
-            geek.ifPresent(authDto::setGeek);
+            Geek geek = geekRepository.findByUsername(dto.getUsername()).orElseThrow(()->new UsernameNotFoundException("Account Does not exist"));
 
-            if(authDto.getGeek()==null){
-                throw new UsernameNotFoundException("Account Does not exist");
-            }
+            GeekDto geekDto = new GeekDto(geek);
+            authDto.setGeek(geekDto);
 
             return authDto;
         }

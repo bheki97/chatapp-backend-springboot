@@ -1,5 +1,6 @@
 package com.fnb.bheki97.chatappbackendspringboot.service.chatroom;
 
+import com.fnb.bheki97.chatappbackendspringboot.dto.NewRoomDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.RoomDto;
 
 import java.util.List;
@@ -7,7 +8,8 @@ import java.util.List;
 public interface ChatRoomManager {
 
 
-    RoomDto addChatRoom(RoomDto dto);
+    NewRoomDto addChatRoom(NewRoomDto dto);
 
-    List<RoomDto> getAllGeekChatRoomsById(String id);
+    List<NewRoomDto> getAllGeekChatRoomsById(long id);
+    RoomDto[] getAllGeekChatRoomsByGeekId(long geekId);
 }

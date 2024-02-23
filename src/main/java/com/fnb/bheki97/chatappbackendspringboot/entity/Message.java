@@ -21,7 +21,7 @@ public class Message {
     @JoinColumn(name = "chat_room_id")
     private ChatRoom chatRoom;
     private String message;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "status_id")
     private MessageStatus status;
 

@@ -7,7 +7,7 @@ import java.util.Objects;
 @Data
 public class OneReceiverSendMsgDto extends MsgDto{
 
-    private String receiverId;
+    private long receiverId;
 
     @Override
     public boolean equals(Object o) {
@@ -15,7 +15,7 @@ public class OneReceiverSendMsgDto extends MsgDto{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         OneReceiverSendMsgDto that = (OneReceiverSendMsgDto) o;
-        return Objects.equals(receiverId, that.receiverId);
+        return receiverId == that.receiverId;
     }
 
     @Override

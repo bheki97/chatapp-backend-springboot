@@ -3,10 +3,7 @@ package com.fnb.bheki97.chatappbackendspringboot.controller.message;
 import com.fnb.bheki97.chatappbackendspringboot.dto.MsgDto;
 import com.fnb.bheki97.chatappbackendspringboot.service.message.MessageManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +14,13 @@ public class MessageController {
     @Autowired
     private MessageManager msgManager;
 
+    @PostMapping
+    public MsgDto sendMessage(@RequestBody MsgDto dto){
+        return msgManager.sendMessage(dto);
+    }
 
-    @GetMapping("/{id}")
+
+    @GetMapping("/room/{id}")
     public List<MsgDto> retrievingAllChatRoomMessages(@PathVariable long id){
         return msgManager.getAllChatRoomMessagesByRoomId(id);
     }

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ChatRoomRepository extends JpaRepository<ChatRoom,Long> {
 
-    List<ChatRoom> findAllByParticipant1UsernameOrParticipant2Username(String username1,String username2);
+    List<ChatRoom> findAllByParticipant1GeekIdOrParticipant2GeekId(long username1, long username2);
 
-    boolean existsByParticipant1UsernameAndParticipant2Username(String username1,String username2);
-    ChatRoom findByParticipant1UsernameAndParticipant2Username(String username1,String username2);
+    boolean existsByParticipant1GeekIdAndParticipant2GeekId(long geekId1,long geekId2);
+    ChatRoom findByParticipant1GeekIdAndParticipant2GeekId(long geekId1, long geekId2);
 
 }

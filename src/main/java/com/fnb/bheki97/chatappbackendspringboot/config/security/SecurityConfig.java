@@ -6,6 +6,7 @@ import com.fnb.bheki97.chatappbackendspringboot.config.security.userdetails.Geek
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -37,8 +38,8 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-
-                    auth.requestMatchers("/auth","/chat-app/**","/topic/**","/registration/**","/sms/**").permitAll();
+                    auth.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll();
+                    auth.requestMatchers("/auth","/chat-app/**","/topic/**","/chat/**","/msg/**","/room/**","/registration/**","/sms/**").permitAll();
                     auth.anyRequest().authenticated();
 
                 }).exceptionHandling(ex -> ex.authenticationEntryPoint(point))

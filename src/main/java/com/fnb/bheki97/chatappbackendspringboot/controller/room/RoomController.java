@@ -1,5 +1,6 @@
 package com.fnb.bheki97.chatappbackendspringboot.controller.room;
 
+import com.fnb.bheki97.chatappbackendspringboot.dto.NewRoomDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.RoomDto;
 import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.impl.ChatRoomManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,17 @@ public class RoomController {
     private ChatRoomManagerService chatRoomService;
 
     @PostMapping
-    public RoomDto addNewRoom(@RequestBody RoomDto dto){
+    public NewRoomDto addNewRoom(@RequestBody NewRoomDto dto){
         return chatRoomService.addChatRoom(dto);
     }
 
+    @GetMapping("/geek/{geekId}")
+    public RoomDto[] getAllGeekRooms(@PathVariable long geekId){
+        return chatRoomService.getAllGeekChatRoomsByGeekId(geekId);
+    }
+
     @GetMapping("/{id}")
-    public List<RoomDto> getAllGeekChatroom(@PathVariable String id){
+    public List<NewRoomDto> getAllGeekChatroom(@PathVariable long id){
 
         return chatRoomService.getAllGeekChatRoomsById(id);
     }

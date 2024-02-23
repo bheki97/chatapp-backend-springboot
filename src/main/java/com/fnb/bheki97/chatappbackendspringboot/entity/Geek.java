@@ -33,8 +33,8 @@ public class Geek {
     public Geek() {
     }
 
-    public Geek(String username) {
-        this.username = username;
+    public Geek(long geekId) {
+        this.geekId = geekId;
     }
 
     public Geek(String username, String email, String firstname, String lastname, String cellNumber, String password, Timestamp registrationDate) {

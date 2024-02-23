@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 public class AuthDto {
 
-    private Geek geek;
+    private GeekDto geek;
+
+
 
 }
