@@ -11,6 +11,7 @@ public class MsgDto {
 
     private long msgId;
     private long roomId;
+    private long msgIndex;
     private long senderId;
     private String message;
     private MessageStatus status;

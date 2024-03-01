@@ -18,6 +18,7 @@ public class MessageUpdaterImpl implements MessageUpdater {
         MessageStatus status = msgStatusRepository.findById(dto.getStatusId()).orElse(null);
         if(status!=null && status.getReadDate()==null){
             status.setReadDate(dto.getDate());
+            System.out.println(status);
             msgStatusRepository.save(status);
         }
     }

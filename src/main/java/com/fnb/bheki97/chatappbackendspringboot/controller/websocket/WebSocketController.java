@@ -32,6 +32,7 @@ public class WebSocketController {
     @MessageMapping("/chat/msg-update/read/{senderId}")
     public void notifyReadMessage(@DestinationVariable long senderId, @Payload MsgUpdateDto dto){
         msgUpdater.updateReadDate(dto);
+        System.out.println(dto);
         messagingTemplate.convertAndSend("/topic/read-msg-statuses/"+senderId, dto);
     }
 
