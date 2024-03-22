@@ -5,6 +5,7 @@ import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.exception.ChatAppException;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.GeekVerifier;
 import com.fnb.bheki97.chatappbackendspringboot.service.registration.GeekRegistration;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,10 +28,15 @@ public class RegistrationController {
     }
     @PostMapping("/verification")
     public Object verifyGeekInfo(@RequestBody Geek geek){
+        Response response = new Response();
+        response.setCode(verifier.verifyGeek(geek));
 
-
-        return verifier.verifyGeek(geek);
+        return response;
+    }
+    @Data
+    class  Response<T>{
+        private T code;
     }
 
-
 }
+

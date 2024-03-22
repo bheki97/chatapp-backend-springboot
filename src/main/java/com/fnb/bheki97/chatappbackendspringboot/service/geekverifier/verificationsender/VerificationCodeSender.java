@@ -1,4 +1,4 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender;
+package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender;
 
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 

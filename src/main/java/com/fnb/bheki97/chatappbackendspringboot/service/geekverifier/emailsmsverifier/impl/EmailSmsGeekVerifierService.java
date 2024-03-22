@@ -5,21 +5,21 @@ import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.exception.ChatAppException;
 import com.fnb.bheki97.chatappbackendspringboot.repository.GeekRepository;
 import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.EmailSmsGeekVerifier;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.emailverifier.GeekEmailVerifier;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.smsverifier.GeekSmsVerifier;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.emailverifier.EmailVerificationCodeSenderService;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.smsverifier.SmsVerificationCodeSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class GeekVerifierService implements EmailSmsGeekVerifier {
 
-    @Autowired
+public class EmailSmsGeekVerifierService implements EmailSmsGeekVerifier {
+
+
     private GeekRepository geekRepository;
 
-    @Autowired
-    private GeekEmailVerifier emailVerifier;
-    @Autowired
-    private GeekSmsVerifier smsVerifier;
+
+    private EmailVerificationCodeSenderService emailVerifier;
+
+    private SmsVerificationCodeSenderService smsVerifier;
 
 
 

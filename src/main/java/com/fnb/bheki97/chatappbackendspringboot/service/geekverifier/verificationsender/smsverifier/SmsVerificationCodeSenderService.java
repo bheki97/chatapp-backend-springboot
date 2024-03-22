@@ -1,15 +1,15 @@
-package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.smsverifier;
+package com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.smsverifier;
 
 import com.fnb.bheki97.chatappbackendspringboot.entity.Geek;
 import com.fnb.bheki97.chatappbackendspringboot.generics.codegenerator.CodeGenerator;
 import com.fnb.bheki97.chatappbackendspringboot.generics.smser.SmsSender;
 import com.fnb.bheki97.chatappbackendspringboot.model.SmsRequest;
-import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.emailsmsverifier.verificationsender.VerificationCodeSender;
+import com.fnb.bheki97.chatappbackendspringboot.service.geekverifier.verificationsender.VerificationCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GeekSmsVerifier implements VerificationCodeSender {
+public class SmsVerificationCodeSenderService implements VerificationCodeSender {
 
     @Autowired
     private CodeGenerator<Long> codeGenerator;

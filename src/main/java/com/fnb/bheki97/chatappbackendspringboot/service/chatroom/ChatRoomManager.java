@@ -9,7 +9,8 @@ public interface ChatRoomManager {
 
 
     NewRoomDto addChatRoom(NewRoomDto dto);
-
+    RoomDto startNewConversation(NewRoomDto dto);
+    RoomDto getConversation(long roomId,long senderId);
     List<NewRoomDto> getAllGeekChatRoomsById(long id);
     RoomDto[] getAllGeekChatRoomsByGeekId(long geekId);
 }

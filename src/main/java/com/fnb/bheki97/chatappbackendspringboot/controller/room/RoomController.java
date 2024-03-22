@@ -16,6 +16,12 @@ public class RoomController {
     @Autowired
     private ChatRoomManagerService chatRoomService;
 
+    @PostMapping("/new-conversation")
+    public RoomDto startConversation(@RequestBody NewRoomDto dto){
+        return chatRoomService.startNewConversation(dto);
+    }
+
+
     @PostMapping
     public NewRoomDto addNewRoom(@RequestBody NewRoomDto dto){
         return chatRoomService.addChatRoom(dto);

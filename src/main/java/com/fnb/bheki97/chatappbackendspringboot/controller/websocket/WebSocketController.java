@@ -3,6 +3,8 @@ package com.fnb.bheki97.chatappbackendspringboot.controller.websocket;
 import com.fnb.bheki97.chatappbackendspringboot.dto.MsgDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.MsgUpdateDto;
 import com.fnb.bheki97.chatappbackendspringboot.dto.OneReceiverSendMsgDto;
+import com.fnb.bheki97.chatappbackendspringboot.dto.RoomDto;
+import com.fnb.bheki97.chatappbackendspringboot.service.chatroom.ChatRoomManager;
 import com.fnb.bheki97.chatappbackendspringboot.service.message.MessageManager;
 import com.fnb.bheki97.chatappbackendspringboot.service.message_update.MessageUpdater;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,17 @@ public class WebSocketController {
     private MessageManager msgManager;
     @Autowired
     private MessageUpdater msgUpdater;
+
+    @Autowired
+    private ChatRoomManager roomManager;
+
+    @MessageMapping("/chat/new-conversation/{senderId}")
+    public void startConversation(@Payload long roomId, @DestinationVariable long senderId){
+
+        RoomDto dto = roomManager.getConversation(roomId,senderId);
+
+        messagingTemplate.convertAndSend("/topic/new-conversation/"+senderId,dto);
+    }
 
 
     @MessageMapping("/chat/msg-update/received/{senderId}")

@@ -8,4 +8,6 @@ public class NewRoomDto {
     private Long roomId;
     private Long geekId1;
     private Long geekId2;
+
+    private MsgDto msg;
 }
